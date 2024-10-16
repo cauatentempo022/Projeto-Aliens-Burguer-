@@ -13,11 +13,11 @@
   <body>
     <header class="main-header">
       <nav class="navegation">
-        <a href="#" class="logo"><img class="img-logo" src="/IMG/logo1-Photoroom.png-Photoroom.png"></a>
+        <a href="#" class="logo"><img class="img-logo" src="./IMG/logo1-Photoroom.png-Photoroom.png"></a>
         <ul class="nav-menu">
-            <li><a href="tlogin2.html" target="_blank" class="nav-item">Login</a></li>
-            <li><a href="tcad.html" target= "_blank" class="nav-item">Cadastro</a></li>
-            <li><a href="index.html" target="_blank" class="nav-item">Menu</a></li>
+            <li><a href="tlogin2.php" target="_self" class="nav-item">Login</a></li>
+            <li><a href="tcad.php" target= "_self" class="nav-item">Cadastro</a></li>
+            <li><a href="tmenu.php" target="_self" class="nav-item">Menu</a></li>
             <i class='bx bx-search'></i>
         </ul>
         <div class="menu">
@@ -241,7 +241,7 @@
         </table>
 
         <button type="button" class="purchase-button">Finalizar Compra</button>
-        <a href="index.html" target="_self" class="voltar">Voltar</a>
+        <a href="tmenu.php" target="_self" class="voltar">Voltar</a>
       </section>
     </main>
   

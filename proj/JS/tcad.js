@@ -56,3 +56,43 @@ const enviar = document.getElementById('enviar');
             enviar.addEventListener('click', () => {
                 alert('Cadastro realizado com sucesso!');
             });
+
+/*Validação do CPF*/
+const validaCPF = (cpf) => {
+    cpf = cpf.replace(/\D/g, '')
+
+    if(cpf.length !== 11){
+        console.error('CPF inválido. Faltam números')
+        return
+    }
+
+    const proximoDigitoVerificador = (cpfIncompleto) => {
+        let somatoria = 0
+
+        for (let i = 0; i< cpfIncompleto.length; i++) {
+          let digitoAtual = cpfIncompleto.charAt[i];
+          console.log(digitoAtual)
+          let constante = (cpfIncompleto.length + i - i)
+
+          somatoria += Number(digitoAtual) + constante
+
+          console.log(constante)
+           
+        }
+        const resto = somatoria % 11
+
+        return resto < 2 ? "0" : (11 - resto).toString
+    }
+    let primeiroDigitoVerificador = proximoDigitoVerificador(cpf.substring(0,9))
+    let segundoDigitoVerificador = proximoDigitoVerificador(cpf.substring(0,9) + primeiroDigitoVerificador)
+    
+    let cpfcorreto = cpf.substring(0,9) + primeiroDigitoVerificador + segundoDigitoVerificador
+
+    if(cpf !== cpfcorreto) {
+        console.error('CPF Invalido. Faltam números')
+        return
+    }
+
+    console.log("CPF Valido!")
+    return true
+}

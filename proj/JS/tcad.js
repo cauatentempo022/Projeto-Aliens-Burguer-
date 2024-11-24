@@ -110,20 +110,20 @@ function formatarCPF(cpf) {
     }
 }
 
-function formatarCelular(celular) {
+function formatarTelefone(Telefone) {
     // Remove qualquer caractere não numérico (caso o número tenha espaços, parênteses ou traços)
-    celular = celular.replace(/\D/g, '');
+    telefone = telefone.replace(/\D/g, '');
     
     // Verifica se o celular tem 11 dígitos (como é o padrão para celulares no Brasil)
-    if (celular.length === 11) {
+    if (telefone.length === 11) {
         // Aplica a formatação: (XX) XXXXX-XXXX
-        return celular.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+        return telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
     } else {
-        return 'Número de celular inválido'; // Caso o número não tenha 11 dígitos
+        return 'Número de telefone inválido'; // Caso o número não tenha 11 dígitos
     }
 }
 
-function formatarTelefoneFixo(telefonef) {
+function formatarTelefoneF(telefonef) {
     // Remove qualquer caractere não numérico (caso o número tenha espaços, parênteses ou traços)
     telefonef = telefonef.replace(/\D/g, '');
     

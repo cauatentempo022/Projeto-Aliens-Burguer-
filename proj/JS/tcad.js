@@ -123,14 +123,14 @@ function formatarCelular(celular) {
     }
 }
 
-function formatarTelefoneFixo(telefone) {
+function formatarTelefoneFixo(telefonef) {
     // Remove qualquer caractere não numérico (caso o número tenha espaços, parênteses ou traços)
-    telefone = telefone.replace(/\D/g, '');
+    telefonef = telefonef.replace(/\D/g, '');
     
     // Verifica se o telefone tem 10 dígitos (como é o padrão para telefones fixos no Brasil)
-    if (telefone.length === 10) {
+    if (telefonef.length === 10) {
         // Aplica a formatação: (XX) XXXX-XXXX
-        return telefone.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+        return telefonef.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
     } else {
         return 'Número de telefone fixo inválido'; // Caso o número não tenha 10 dígitos
     }

@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['id']) || !isset($_SESSION['classe'])) {
+    header("Location: tlogin2.php"); // Redireciona para o login se não estiver autenticado
+    exit();
+}
+
+// Pega a classe do usuário logado
+$classeUsuario = $_SESSION['classe'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,44 +22,18 @@
     <link rel="shortcut icon" href="IMG/icon-aliens.ico" type="image/x-icon">
 </head>
 <body>
-    
-    <?php
-// Inicia a sessão
-session_start();
-
-// Verifica se o usuário está logado, senão redireciona para a página de login
-if (!isset($_SESSION['login'])) {
-    header("Location: tlogin2.php");
-    exit();
-}
-
-// Pega o login do usuário da sessão
-$logged_in_user = $_SESSION['login'];
-
-// Conexão com o banco de dados (opcional, se necessário para mais funcionalidades)
-// Conexão com o banco de dados (MySQL)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "projeto";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
-?>
-    
     <header>
         <nav class="navegation">
             <a href="#" class="logo"><img class="img-logo" src="./IMG/logo1-Photoroom.png-Photoroom.png"></a>
             <ul class="nav-menu">
-                <li><a href="tcarinho.html" target="_self" class="nav-item">Carrinho</a></li>
-                <li><a href="tlogin2.php" target="_self" class="nav-item">Login</a></li>
+                <li><a href="tcarinho.html" target="_self" class="nav-item">Cardápio</a></li>
                 <li><a href="tcad.php" target="_self" class="nav-item">Cadastro</a></li>
-
-                <!-- Exibe o login do usuário no menu se estiver logado -->
-                <li><a href="#" class="nav-item"><?php echo htmlspecialchars($logged_in_user); ?></a></li>
+                
+                <!-- Mostra opções extras se for 'master' ou 'adm' -->
+                <?php if ($classeUsuario === 'master' || $classeUsuario === 'adm'): ?>
+                    <li><a href="lista.php" target="_self" class="nav-item">Lista de Usuários</a></li>
+                    <li><a href="log.php" target="_self" class="nav-item">Log de Ações</a></li>
+                <?php endif; ?>
             </ul>
             <div class="menu">
                 <span class="bar"></span>
@@ -60,9 +47,9 @@ if ($conn->connect_error) {
         <section class="home">
             <div class="home-text">
                 <h4 class="text-h4">BEM-VINDO AO</h4>      
-                <h1 class="text-h1">Aliens Burguer </h1>
+                <h1 class="text-h1">Aliens Burguer</h1>
                 <p>Venham conhecer nossos Hamburguer's mais variados e divertidos de todo Planeta, garanto que será uma experiência de outro mundo.</p>
-                <a href="terro.html" class="home-btn">Link</a>        
+                <a href="terro.php" class="home-btn">Link</a>        
             </div>
             <div class="home-img">
                 <img src="./IMG/menu-ham.png" alt="Hamburguer">

@@ -103,7 +103,7 @@ fieldset{
  }
 .limpar:hover,
 .enviar:hover,
-.voltar:hover{
+.save:hover{
     background-color: var(--purple);
     color: var(--dark);
  }

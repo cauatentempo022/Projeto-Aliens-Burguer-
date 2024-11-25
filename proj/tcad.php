@@ -1,14 +1,3 @@
-<!DOCTYPE HTML>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/tcad.css"/>
-    <title>Página de Cadastro</title>
-    <link rel="shortcut icon" href="IMG/icon-aliens.ico" type="image/x-icon">
-</head>
-<body>
-    
 <?php
 // Conexão com o banco de dados (MySQL)
 $servername = "localhost";  // Servidor do banco de dados
@@ -43,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST['idSenha'];  // Senha
     $csenha = $_POST['idCSenha']; // Confirmação de senha
     $genero = $_POST['genero'];
-    $data = $_POST['iddata'];
+    $dataNascimento = $_POST['iddate'];
 
     // Verifica se as senhas correspondem
     if ($senha !== $csenha) {
@@ -61,16 +50,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<script>alert('ESSE CADASTRO JÁ EXISTE');</script>";
         } else {
             // Insere os dados no banco de dados
-            $sql = "INSERT INTO usuarios (nome, email, telefoneF, telefoneC, nomeMaterno, cpf, cep, rua, bairro, estado, cidade, login, senha, csenha, genero, dataNascimento)
-                    VALUES ('$nome', '$email', '$telefoneF', '$telefoneC', '$nomeMaterno', '$cpf', '$cep', '$rua', '$bairro', '$estado', '$cidade', '$login', '$senhaHash', '$senhaHash', '$genero', '$data')";
-
-            if ($conn->query($sql) === TRUE) {
-                echo "<script>alert('Cadastro realizado com sucesso!');</script>";
-                header('Location: tmenu.php');
-                exit();
-            } else {
-                echo "Erro: " . $sql . "<br>" . $conn->error;
-            }
+                        // Insere os dados no banco de dados
+                        $sql = "INSERT INTO usuarios (nome, email, telefoneF, telefoneC, nomeMaterno, cpf, cep, rua, bairro, estado, cidade, login, senha, csenha, genero, dataNascimento, classe)
+                        VALUES ('$nome', '$email', '$telefoneF', '$telefoneC', '$nomeMaterno', '$cpf', '$cep', '$rua', '$bairro', '$estado', '$cidade', '$login', '$senhaHash', '$senhaHash', '$genero', '$data', 'cliente')";
+    
+                if ($conn->query($sql) === TRUE) {
+                    echo "<script>alert('Cadastro realizado com sucesso!');</script>";
+                    header('Location: tmenu.php');
+                    exit();
+                } else {
+                    echo "Erro: " . $sql . "<br>" . $conn->error;
+                }
+    
         }
     }
 
@@ -78,7 +69,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
-    
+
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/tcad.css"/>
+    <title>Página de Cadastro</title>
+    <link rel="shortcut icon" href="IMG/icon-aliens.ico" type="image/x-icon">
+</head>
+<body>
     <header>
     </header>
     <main>
@@ -177,9 +178,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <br>
                 
                         <input type="reset" name="LIMPAR" value="LIMPAR" class="limpar">
-                        <input type="submit" value="salvar" class="save">
+                        <input type="submit" value="SALVAR" class="save">
                         <a href="tmenu.php" target="_self" class="enviar" id="enviar" >ENVIAR</a>
-                        <a href="tlogin.php" target="_self" class="voltar" id="voltar" >VOLTAR</a>
             </form>
         </div>
     </main>

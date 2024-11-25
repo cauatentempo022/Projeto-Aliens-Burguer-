@@ -12,7 +12,7 @@
         <nav class="navegation">
             <a href="#" class="logo"><img class="img-logo" src="./IMG/logo1-Photoroom.png-Photoroom.png"></a>
             <ul class="nav-menu">
-                <li><a href="tcarinho.html" target="_self" class="nav-item">Carrinho</a></li>
+                <li><a href="tcarinho.html" target="_self" class="nav-item">Cardápio</a></li>
                 <li><a href="tlogin2.php" target="_self" class="nav-item">Login</a></li>
                 <li><a href="tcad.php" target="_self" class="nav-item">Cadastro</a></li>
 

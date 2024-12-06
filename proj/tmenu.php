@@ -26,7 +26,7 @@ $classeUsuario = $_SESSION['classe'];
         <nav class="navegation">
             <a href="#" class="logo"><img class="img-logo" src="./IMG/logo1-Photoroom.png-Photoroom.png"></a>
             <ul class="nav-menu">
-                <li><a href="tcarinho.html" target="_self" class="nav-item">Cardápio</a></li>
+                <li><a href="tcarinho.php" target="_self" class="nav-item">Cardápio</a></li>
                 <li><a href="tcad.php" target="_self" class="nav-item">Cadastro</a></li>
                 
                 <!-- Mostra opções extras se for 'master' ou 'adm' -->

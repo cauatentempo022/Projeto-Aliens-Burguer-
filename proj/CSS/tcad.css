@@ -174,3 +174,9 @@ p{
         margin-right: 0.5rem;
     }
 }
+.error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: block;
+        }
